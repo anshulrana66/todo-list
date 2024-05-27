@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+    <style>
+           *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+      body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    background-color: #2f363e;
+ }
+ .box{
+   position: relative;
+   width: 480px;
+   height: 550px;
+   border-radius: 30px;
+   padding: 30px 50px;
+   background-color: #2f363e;
+   box-shadow: 25px 25px 75px rgba(0, 0, 0, 25);
+
+ }
+ 
+ h1{
+   width: 100%;
+   font-weight: 600;
+   text-align: center;
+   color: white;
+   margin-bottom: 8px;
+ }
+
+ .input-button{
+
+    margin-bottom: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+ }
+ input {
+   width: 70%;
+   border: none;
+   outline: none;
+   padding: 15px 20px;
+   border-radius: 26px;
+ }
+ button {
+   width: 20%;
+   border: none;
+   outline: none;
+   padding: 15px 15px;
+   border-radius: 4vw;
+   height: 60px;
+
+ }
+ 
+button i{
+    font-size: 2rem;
+    color: red;
+
+}
+        
+
+ .tasklist{
+            /* border: 2px solid black; */
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .tasklistBtn{ 
+            /* background-color: red; */
+            height: 45px;
+            width: fit-content;
+            padding:0;
+            background-color:transparent;
+
+
+        }
+        .tasklistBtn i{
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .tasklist p{
+            /* margin-top: 20px; */
+            width: 85%;
+            word-spacing: 2px;
+            letter-spacing: 0.3px;
+            padding: 15px 15px;
+             border-radius: 30px;
+            background-color: #97b9e0;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            color: white;
+
+        }
+
+        @media screen and (max-width:576px){
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+         
+            body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    background-color: #2f363e;
+
+ }
+ .box{
+    margin: 10px 20px;
+   position: relative;
+   width: 482px;
+   height: 480px;
+   border-radius: 30px;
+   padding:0;
+   background-color: #2f363e;
+   box-shadow: 25px 25px 75px rgba(0, 0, 0, 25);
+
+ }
+ 
+ h1{
+   width: 100%;
+   font-weight: 600;
+   text-align: center;
+   color: white;
+   margin-bottom: 8px;
+ }
+
+ .input-button{
+    margin-bottom: 10px;
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    
+
+ }
+ input {
+   width: 70%;
+   border: none;
+   outline: none;
+   padding: 15px 20px;
+   border-radius: 7vw;
+ }
+ button {
+   width: 20%;
+   border: none;
+   outline: none;
+   padding: 15px 15px;
+   border-radius: 7vw;
+ }
+ 
+button i{
+    font-size: 2rem;
+    color: red;
+
+}
+        }
+   
+    </style>
+</head>
+<body>
+    
+    
+     <div class="box">
+   <h1 id="todo">TO-DO LIST</h1>
+   <div class="input-button">
+   <input type="text" placeholder="add task here....">
+   <button>Add task</button>
+    </div>
+    <div class="tasklist">
+   
+</div>
+<script>
+let inputField=document.querySelector("input")
+    let button=document.querySelector("button")
+let tasklist=document.querySelector(".tasklist")
+
+
+    button.addEventListener("click",()=>{
+        let icon = document.createElement("i");
+icon.classList.add("fa-solid", "fa-trash");
+if(inputField.value !==''){
+
+        let createElement=document.createElement("p");
+        let createButton=document.createElement("button");
+        createButton.appendChild(icon);
+   
+        createButton.classList.add("tasklistBtn")
+
+        createElement.textContent=inputField.value
+        tasklist.appendChild(createElement)
+        tasklist.appendChild(createButton)
+        createButton.addEventListener('click',()=>{
+            tasklist.removeChild(createElement)
+            tasklist.removeChild(createButton)
+        })
+        inputField.value=""
+    }
+
+
+       
+
+
+    })
+
+</script>
+</body>
+</html>
